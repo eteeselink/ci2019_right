@@ -33,11 +33,12 @@ export class Create {
             // which causes the entire page to reload.
             // since we have no server, we don't want that :-)
             ev.preventDefault();
-
-            const bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
-            this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
+            const questionText = this.element.querySelector("input[id=question]").value;
+            alert(questionText);
+            // const bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
+            // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
-            makeAsciiArt(this.element.querySelector("#pizza"));
+            //makeAsciiArt(this.element.querySelector("#pizza"));
         })
     }
 }
