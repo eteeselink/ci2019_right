@@ -6,20 +6,18 @@
     <script type="module">
         import {Poll} from "./poll.js";
         const poll = new Poll(document.getElementById("hello"));
-        poll.render("George");
 
         import {Create} from "./create.js";
         const create = new Create(document.getElementById("create"));
-        create.render();
         
         import {Fill} from "./fill.js";
         const fill = new Fill(document.getElementById("fill"));
-        fill.drawQuestion();
+        create.render();
     </script>
 </head>
 <body>
-    <!-- <div id="hello">
-    </div> -->
+    <div id="hello">
+    </div> 
     <div id="create">
     </div>
     

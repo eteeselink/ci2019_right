@@ -1,7 +1,7 @@
-    var question = 'Do you like pizza?';
-    var answerList = [];
+var question = 'Do you like pizza?';
+var answerList = [];
     
-    export class Fill{
+export class Fill {
     
     /**
      * @param {HTMLElement} element 
@@ -11,15 +11,17 @@
     }
 
 
-    drawQuestion(){
+    drawQuestion(questionList){
+        for (var i = 0; i < questionList.length; i++){
+            
         this.element.innerHTML = `
-            ${question}<br>
+            ${questionList[i]}<br>
             <input type="radio" name="pizza" value="Yes" id="radio1">
             <label for="radio1">Yes</label><br>
             <input type="radio" name="pizza" value="No" id="radio2">
             <label for="radio2">No</label><br>
             <button id="btn">Send!</button>
-        `;
+        `;}
 
         this.element.querySelector("button").addEventListener("click", ev => {
             // always add `preventDefault` in an event handler. otherwise, the browser
@@ -32,7 +34,9 @@
             
             answerList.push(answer);
 
+
             console.log(answerList);
         })
     }
+    
 }

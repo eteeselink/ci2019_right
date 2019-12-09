@@ -1,5 +1,9 @@
 import {makeAsciiArt} from "./art.js";
+import {Fill} from "./fill.js";
 
+
+
+var questionList = [];
 export class Create {
     /**
      * @param {HTMLElement} element 
@@ -34,11 +38,11 @@ export class Create {
             // since we have no server, we don't want that :-)
             ev.preventDefault();
             const questionText = this.element.querySelector("input[id=question]").value;
-            alert(questionText);
-            // const bestPizza = this.element.querySelector("input[name=pizza]:checked").value;
-            // this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
-            
-            //makeAsciiArt(this.element.querySelector("#pizza"));
+            questionList.push(questionText);
+            localStorage.setItem("qList", JSON.stringify(questionList));
+          
+            var fill = new Fill(this.element);
+            fill.drawQuestion(questionList);
         })
     }
 }
