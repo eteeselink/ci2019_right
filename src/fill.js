@@ -39,7 +39,60 @@ import {makeAsciiArt} from "./art.js";
             });
 
             this.element.innerHTML += `<div id="result"></div>`;
-            makeAsciiArt(this.element.querySelector("#result"));
+         //   makeAsciiArt(this.element.querySelector("#result"));
+            console.log(fill.answerList);
+       
+       
+       
+       
+       
+            google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart_CI);
+
+// Draw the chart and set the chart values
+
+let yesCnt=0;
+let noCnt=0;
+
+console.log(answerList.length);
+for(var i = 0; i<answerList.length;++i)
+{
+    console.log(answerList[i]);
+    if(answerList[i]==='Yes'){
+        yesCnt++;
+    }
+    if(answerList[i]==='No'){
+        noCnt++;
+    }
+}
+
+console.log(yesCnt);
+//alert(yesCnt);
+function drawChart_CI() {
+  var data = google.visualization.arrayToDataTable([
+  ['Answer', 'count'],
+  ['Yes', yesCnt],
+  ['No', noCnt]
+]);
+
+
+
+/*var count = 0;
+for(var i = 0; i<myArray.length;++i)
+{
+    if(myArray[i]==='yes'){
+        count++;
+    }
+}*/
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Questionnaire Result', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+        
         })
     }
 }
