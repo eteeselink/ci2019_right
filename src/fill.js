@@ -1,3 +1,4 @@
+import {makeAsciiArt} from "./art.js";
     var question = 'Do you like pizza?';
     var answerList = [];
     
@@ -32,7 +33,13 @@
             
             answerList.push(answer);
 
-            console.log(answerList);
+            answerList.forEach(ans => {
+                this.element.innerHTML = `<p>Answer for question <i>${question}</i> is  <b>${ans} </b></p>`;
+                
+            });
+
+            this.element.innerHTML += `<div id="result"></div>`;
+            makeAsciiArt(this.element.querySelector("#result"));
         })
     }
 }
