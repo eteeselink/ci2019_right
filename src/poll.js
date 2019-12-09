@@ -9,6 +9,7 @@ export class Poll {
     }
 
     render(name) {
+        console.log(answerList);
         this.element.innerHTML = `
             Hi ${name}! What's the best pizza?<br>
             <input type="radio" name="pizza" value="Margherita" id="radio1">

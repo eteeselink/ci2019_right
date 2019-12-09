@@ -9,13 +9,19 @@
         import {Create} from "./create.js";
         const create = new Create(document.getElementById("create"));
         create.render();
+        
+        import {Fill} from "./fill.js";
+        const fill = new Fill(document.getElementById("fill"));
+        fill.drawQuestion();
     </script>
 </head>
 <body>
     <!-- <div id="hello">
     </div> -->
     <div id="create">
-
+    </div>
+    
+    <div id="fill">
     </div>
 </body>
 </html>
