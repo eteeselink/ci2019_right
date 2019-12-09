@@ -4,14 +4,26 @@
     
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="module">
+        // import {Poll} from "./poll.js";
+        // const poll = new Poll(document.getElementById("hello"));
+        // poll.render("George");
+
+        import {Create} from "./create.js";
+        const create = new Create(document.getElementById("create"));
+        create.render();
+        
         import {Fill} from "./fill.js";
         const fill = new Fill(document.getElementById("fill"));
         fill.drawQuestion();
     </script>
 </head>
 <body>
+    <!-- <div id="hello">
+    </div> -->
+    <div id="create">
+    </div>
+    
     <div id="fill">
-
     </div>
 </body>
 </html>
