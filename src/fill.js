@@ -36,7 +36,7 @@ export class Fill {
 
 
             answerList.forEach(ans => {
-                this.element.innerHTML = `<p>Answer for question <i>${question}</i> is  <b>${ans} </b></p>`;
+                this.element.innerHTML = `<p>Answer for question <i>${questionList[0]}</i> is  <b>${ans} </b></p>`;
                 
             });
 
