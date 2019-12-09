@@ -2,10 +2,11 @@
 <head>
     <title>Ooticracy</title>
     
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="module">
         import {Poll} from "./poll.js";
         const poll = new Poll(document.getElementById("hello"));
+
 
         import {Create} from "./create.js";
         const create = new Create(document.getElementById("create"));
@@ -20,7 +21,7 @@
     </div> 
     <div id="create">
     </div>
-    
+    <div id="piechart"></div>
     <div id="fill">
     </div>
 </body>
