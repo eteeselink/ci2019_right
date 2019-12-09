@@ -35,6 +35,12 @@ export class Poll {
             this.element.innerHTML = `<p>Indeed ${name}, Pizza ${bestPizza} is by far the best.</p><div id="pizza"></div>`;
             
             makeAsciiArt(this.element.querySelector("#pizza"));
+			
+			var result = ["Yes", "No"];
+            result.forEach(res => {
+                this.element.innerHTML += `<p>Indeed ${name}, answer: ${res} </p>`;
+                
+            });
         })
     }
 }
