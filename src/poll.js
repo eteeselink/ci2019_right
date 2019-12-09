@@ -36,11 +36,55 @@ export class Poll {
             
             makeAsciiArt(this.element.querySelector("#pizza"));
 			
-			var result = ["Yes", "No"];
-            result.forEach(res => {
+			//var result = ["Yes", "No"];
+            answerList.forEach(res => {
                 this.element.innerHTML += `<p>Indeed ${name}, answer: ${res} </p>`;
                 
             });
+
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart_CI);
+
+// Draw the chart and set the chart values
+
+let yesCnt=0;
+let noCnt=0;
+
+
+for(var i = 0; i<answerList.length;++i)
+{
+    if(answerList[i]==='yes'){
+        yesCnt++;
+    }
+    if(answerList[i]==='no'){
+        noCnt++;
+    }
+}
+function drawChart_CI() {
+  var data = google.visualization.arrayToDataTable([
+  ['Answer', 'count'],
+  ['Yes', yesCnt],
+  ['No', noCnt]
+]);
+
+
+
+/*var count = 0;
+for(var i = 0; i<myArray.length;++i)
+{
+    if(myArray[i]==='yes'){
+        count++;
+    }
+}*/
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Questionnaire Result', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
         })
     }
 }
