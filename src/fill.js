@@ -1,5 +1,6 @@
 
 import {makeAsciiArt} from "./art.js";
+var answerList = [];
 export class Fill {
     
     /**
@@ -19,10 +20,18 @@ export class Fill {
             <label for="radio1">Yes</label><br>
             <input type="radio" name="pizza" value="No" id="radio2">
             <label for="radio2">No</label><br>
-            <button id="btn">Send!</button>
+            <button id="btn">Submit!</button>
+            <button id="btn2">Next!</button>
         `;}
-
-        this.element.querySelector("button").addEventListener("click", ev => {
+        
+        this.element.querySelector("button[id=btn2]").addEventListener("click", ev =>{
+            console.log("KAPPA");
+            ev.preventDefault();
+            answerList.push(this.element.querySelector("input[name=pizza]:checked").value);
+            this.drawQuestion(questionList);
+        });
+        
+        this.element.querySelector("button[id=btn]").addEventListener("click", ev => {
             // always add `preventDefault` in an event handler. otherwise, the browser
             // will do some default action which usually means submitting the data to the server, 
             // which causes the entire page to reload.
@@ -31,7 +40,7 @@ export class Fill {
 
             const answer = this.element.querySelector("input[name=pizza]:checked").value;
             
-            var answerList = [];
+            
             answerList.push(answer);
 
 
